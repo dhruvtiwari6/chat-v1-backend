@@ -69,6 +69,10 @@ io.on('connection', (socket) => {
 
 });
 
+app.get('/', (req, res) => {
+    res.send('API is running');
+});
+
 
 
 server.listen(process.env.PORT, () => {
