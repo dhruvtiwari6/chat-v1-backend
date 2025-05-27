@@ -14,7 +14,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: ["http://127.0.0.1:5173" , "http://localhost:5173"],
+    origin: process.env.CORS_ORIGIN,
     credentials: true
 }));
 app.use(cookieParser());
@@ -35,7 +35,7 @@ const { chat } = require('./src/model/chat.model.js');
 const io = new Server(server, {
     pingTimeout: 60000, 
     cors: {
-        origin:  ["http://127.0.0.1:5173" , "http://localhost:5173"] // make sure this matches your frontend
+        origin:  process.env.CORS_ORIGIN // make sure this matches your frontend
     }
 });
 
