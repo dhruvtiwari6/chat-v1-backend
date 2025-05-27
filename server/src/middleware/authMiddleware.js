@@ -7,7 +7,7 @@ const Verify_jwt = async (req, res, next) => {
     try {
         console.log("cookies : ", req.cookies);
 
-        const token = req.cookies?.accessToken || req.headers['Authorization']?.replace("Bearer ", "") || req.headers['authorization']?.replace("Bearer ", "");
+        const token = req.Cookies?.accessToken || req.headers['Authorization']?.replace("Bearer ", "") || req.headers['authorization']?.replace("Bearer ", "");
 
         console.log("token : ", token);
         if (!token) {
