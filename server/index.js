@@ -3,11 +3,11 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-const { connectDB } = require('./db/connection.js');
-const { router } = require('./route/user.route.js');
-const chatRouter = require('./route/chatRoute.js');
-const messageRouter = require('./route/messageRoute.js');
-const errorHandler = require('./utils/errorHandler.js');
+const { connectDB } = require('./src/db/connection.js');
+const { router } = require('./src/route/user.route.js');
+const chatRouter = require('./src/route/chatRoute.js');
+const messageRouter = require('./src/route/messageRoute.js');
+const errorHandler = require('./src/utils/errorHandler.js');
 
 
 const app = express();
@@ -31,7 +31,7 @@ const http = require('http');
 const server = http.createServer(app);
 
 const { Server } = require("socket.io");
-const { chat } = require('./model/chat.model.js');
+const { chat } = require('./src/model/chat.model.js');
 const io = new Server(server, {
     pingTimeout: 60000, 
     cors: {
