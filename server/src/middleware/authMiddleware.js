@@ -10,17 +10,17 @@ const Verify_jwt = async (req, res, next) => {
         const token = req.Cookies?.accessToken || req.headers['Authorization']?.replace("Bearer ", "") || req.headers['authorization']?.replace("Bearer ", "");
 
         console.log("token : ", token);
-        if (!token) {
-            throw new ApiError(401, 'Unauthorized request: No token provided');
-        }
+        // if (!token) {
+        //     throw new ApiError(401, 'Unauthorized request: No token provided');
+        // }
 
         const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
         const user_id = decoded._id;
 
         const userFind = await user.findById(user_id).select("-password");
-        if (!userFind) {
-            throw new ApiError(401, "No user found");
-        }
+        // if (!userFind) {
+        //     throw new ApiError(401, "No user found");
+        // }
 
         // Attach the user information to the request object
         req.userId = userFind._id;
