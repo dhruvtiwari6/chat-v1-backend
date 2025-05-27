@@ -58,6 +58,7 @@ const loginUser = async (req, res, next) => {
             httpOnly: true,
             secure: true, // Use secure: true in production for HTTPS
             // other cookie options as needed
+            sameSite: 'none'
         };
 
         const loggedInUser = foundUser.toObject();
@@ -120,6 +121,7 @@ const registerUser = async (req, res, next) => {
             httpOnly: true,
             secure: true, // Use secure: true in production for HTTPS
             // other cookie options as needed
+            sameSite: 'none'
         };
 
 
